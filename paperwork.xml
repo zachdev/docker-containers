@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Name>Paperwork</Name>
+  <Description>
+    [h3]Paperwork[/h3]Paperwork aims to be an open-source, self-hosted alternative to services like Evernote (R), Microsoft OneNote (R) or Google Keep (R).[br][br]
+    [b][span style=\'color: #E80000;\']Directions:[/span][/b][br]
+    [b]Be sure to change the Host port from [span style=\'color: #E80000;\']80[/span] to [span style=\'color: #E80000;\']something else[/span] as [span style=\'color: #E80000;\']80[/span] is the port unRAID uses for its web interface.[/b][br][br]
+    [b]/config[/b] : this path is where Paperwork will store it\'s database connection file and the database which contains data for users, notebooks, and notes.[br]
+  </Description>
+  <Registry>https://registry.hub.docker.com/u/zuhkov/paperwork/</Registry>
+  <Repository>zuhkov/paperwork</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment/>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>80</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/paperwork</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Version></Version>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <Banner>http://i.imgur.com/UJD1dvA.png</Banner>
+  <Icon>http://i.imgur.com/butfLlk.png</Icon>
+</Container>
